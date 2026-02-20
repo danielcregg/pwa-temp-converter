@@ -37,6 +37,11 @@ form.addEventListener('input', () => {
   const fromUnit = fromUnitField.value;
   const toUnit = toUnitField.value;
 
+  if (isNaN(inputTemp)) {
+    outputField.value = '—';
+    return;
+  }
+
   const outputTemp = convertTemp(inputTemp, fromUnit, toUnit);
   outputField.value = (Math.round(outputTemp * 100) / 100) + ' ' + toUnit.toUpperCase();
 });
